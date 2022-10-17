@@ -8,6 +8,13 @@ very simple stubs that produce something "enough like" the expected results.
 The initial aim is to make it easier to perform checks using Vale on documents
 created with Sphinx.
 
+
+-----
+
+Package setup done using advice from
+https://mathspp.com/blog/how-to-create-a-python-package-in-2022
+(since I use poetry anyway).
+
 License
 -------
 
