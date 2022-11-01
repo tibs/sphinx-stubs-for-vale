@@ -1,4 +1,4 @@
-from not_sphinx import __version__
+from sphinx_stubs_for_vale import __version__
 
 
 def test_version():

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "not-sphinx"
+name = "sphinx-stubs-for-vale"
 version = "0.1.0"
 description = ""
 authors = ["Tibs <tibs@tonyibbs.co.uk>"]
