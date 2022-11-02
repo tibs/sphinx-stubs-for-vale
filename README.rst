@@ -24,6 +24,7 @@ https://mathspp.com/blog/how-to-create-a-python-package-in-2022
 License
 -------
 
-Docutils itself is licensed under a Public Doman license.
-Unfortunately, that is an option I have in any of the countries in the UK, so
-this package is released under and MIT license.
+Docutils itself is licensed under a Public Doman license, and Vale under an
+MIT license. Since I don't believe I can actually release software to the
+Public Domain from any of the countries in the UK, this package is released
+under an MIT license.
