@@ -29,6 +29,9 @@ from docutils import nodes
 from docutils.core import publish_parts
 from docutils.parsers.rst.states import Body
 
+# Setup our own special magic
+import sphinx_stubs_for_vale
+
 GITHUB_DISPLAY = True
 
 
@@ -76,7 +79,13 @@ This is some text.
 
 `An inline link <some-url>`_.
 
-:ref:`Maybe a reference`.
+:ref:`text-reference`.
+
+:ref:`Text <text-reference>`.
+
+:doc:`/some/location`.
+
+:doc:`Text </some/location>`.
 
 .. unknown:: something
    :more: something else
