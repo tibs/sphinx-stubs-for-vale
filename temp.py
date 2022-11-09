@@ -75,10 +75,17 @@ TEST_DATA = """\
 This is a title
 ===============
 
+Vanilla text
+------------
 This is some text.
 
 `An inline link <some-url>`_.
 
+.. image:: some-url
+   :alt: Some text
+
+Spinx text
+----------
 :ref:`text-reference`.
 
 :ref:`Text <text-reference>`.
