@@ -103,7 +103,7 @@ And if I give it the following data:
     :doc:`Text </some/location>`.
 
     .. unknown:: something
-    :more: something else
+       :more: something else
 
 then it produces the following HTML:
 
