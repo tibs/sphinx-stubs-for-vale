@@ -8,9 +8,29 @@ It's probably enough just to check spelling reporting, really.
 
 ``test.rst`` looks like:
 
-.. include:: test.rst
-   :code: reStructuredText
-   :number-lines:
+.. I can't use the ``include`` directive for a GitHub document, as they
+   don't support it (it is technically a possible security issue). So
+   I'm going to repdroduce the file by copying it, and trying to remember
+   to update the copy when I change the file (!)
+
+.. code:: reStructuredText
+    :number-lines:
+
+    This is a title
+    ===============
+
+    `An inline link <notaword capital>`_.
+
+    :ref:`reference badreport capital`.
+
+    :ref:`Reference text goodreport <reference badreport capital>`.
+
+    :doc:`doc badreport capital`.
+
+    :doc:`Document text goodreport <doc badreport capital>`.
+
+    .. unknown:: something notaword
+       :more: something capital
 
 ::
     ; vale --version
