@@ -11,7 +11,8 @@ __version__ = "0.1.0"
 
 
 # XXX DEBUG XXX
-print(f"Importing {__file__}")
+import logging
+logging.debug("Importing %r", __file__)
 
 
 # If the text is not closely conforming to what we want, just pass it through
@@ -19,7 +20,7 @@ role_text_and_link_re = re.compile(
     r"""
     ^               # Start of string
     (?P<text>.*)    # Any text
-    \self           # Some whitespace
+    \s              # Some whitespace
     <(?P<link>.*)>  # < followed by any text followed by >
     $               # End of string
     """,
@@ -55,11 +56,13 @@ def ref_role_fn(name, rawtext, text, lineno, inliner, options=None, content=None
     If ``some text`` isn't given, we don't know what text Sphinx would assign,
     so for the moment we'll just use an empty string there.
     """
+    logging.debug("role name=%r rawtext=%r text=%r lineno=%r", name, rawtext, text, lineno)
     matches = role_text_and_link_re.fullmatch(text)
     if matches:
         # If the user gave us "some text" we can ask Vale to check it
         text = matches["text"]
         link = matches["link"]
+        logging.debug("matches > text %r link %r", text, link)
     else:
         # If the user just gave us the reference, Sphinx would generate
         # the text from the target, so the best thing we can do is use ""
@@ -73,6 +76,7 @@ def ref_role_fn(name, rawtext, text, lineno, inliner, options=None, content=None
         # not be english.
         link = text
         text = ""
+        logging.debug("NO match > text %r link %r", text, link)
 
     options = normalized_role_options(options)
 

@@ -29,8 +29,17 @@ from docutils import nodes
 from docutils.core import publish_parts
 from docutils.parsers.rst.states import Body
 
+import logging
+logging.basicConfig(
+    format='%(asctime)s %(levelname)s %(message)s',
+    level=logging.DEBUG,
+)
+
 # Setup our own special magic
-import sphinx_stubs_for_vale
+try:
+    import sphinx_stubs_for_vale
+except ImportError:
+    logging.error('Unable to impirt sphinx stubs')
 
 GITHUB_DISPLAY = True
 
