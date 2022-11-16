@@ -32,9 +32,8 @@ It's probably enough just to check spelling reporting, really.
     .. unknown:: something notaword
        :more: something capital
 
-.. Hmm. Without this, GitHub doesn't "see" the following ``::`` as special
+Just to check the version of vale::
 
-::
     ; vale --version
     vale version 2.21.0
 
