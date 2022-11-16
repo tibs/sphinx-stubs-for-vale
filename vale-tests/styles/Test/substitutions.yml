@@ -3,4 +3,4 @@ message: "Use '%s' instead of '%s'."
 ignorecase: true
 level: error
 swap:
-  kafka: Kafka
+  capital: Capital

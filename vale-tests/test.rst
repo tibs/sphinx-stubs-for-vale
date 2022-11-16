@@ -1,17 +1,15 @@
 This is a title
 ===============
 
-This is some text. Mibble
+`An inline link <notaword capital>`_.
 
-`An inline link <some-url>`_.
+:ref:`reference badreport capital`.
 
-:ref:`reference notaword biggle kafka`.
+:ref:`Reference text goodreport <reference badreport capital>`.
 
-:ref:`Text bebble <reference notaword buggle kafka>`.
+:doc:`doc badreport capital`.
 
-:doc:`doc notaword webble kafka`.
-
-:doc:`Text wibble <doc notaword mobble kafka>`.
+:doc:`Document text goodreport <doc badreport capital>`.
 
 .. unknown:: something notaword
-   :more: something kafka
+   :more: something capital
