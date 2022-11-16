@@ -1,0 +1,3 @@
+extends: spelling
+message: "'%s' does not seem to be a recognised word"
+level: error
