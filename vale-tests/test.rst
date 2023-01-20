@@ -1,6 +1,8 @@
 This is a title
 ===============
 
+:emphasis:`This should be emphasised` just like *this*.
+
 `An inline link <notaword capital>`_.
 
 :ref:`reference badreport capital`.

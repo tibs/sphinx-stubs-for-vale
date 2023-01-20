@@ -1,6 +1,8 @@
 Testing how Vale works
 ======================
 
+Note: the latest version of docutils is 0.19 from 5 July 2022
+
 Checking for where spellcheck and substitution check is done, in Sphinx
 entities.
 
@@ -18,6 +20,8 @@ It's probably enough just to check spelling reporting, really.
 
     This is a title
     ===============
+
+    :emphasis:`This should be emphasised` just like *this*.
 
     `An inline link <notaword capital>`_.
 

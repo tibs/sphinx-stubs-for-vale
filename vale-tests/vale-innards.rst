@@ -310,3 +310,50 @@ and the actual output of my vale command becomes::
     test.rst:12:21:Test.spelling:'goodreport' does not seem to be a recognised word
 
 which means that I have my proof of concept (and also probably a bug in vale).
+
+----------
+
+How vale currently copes with such things
+=========================================
+
+See (closed) issue `Support Sphinx :doc: and :ref: by replacement`_
+
+.. _`Support Sphinx :doc: and :ref: by replacement`: https://github.com/errata-ai/vale/issues/470
+
+``rst2html`` (and ``rst2html.py``) put a ``problematic`` class onto the HTML
+generated for roles they don't recognise. Vale then (in
+``vale/inernal/lint/ast.go``) ignores text in such a class.
+
+**Except** it doesn' always seem to work for me, on my work computer, for
+reasons I've still to work out. I can see ``rst2html`` and ``rst2html.py``
+both producing the ``problematic`` class, as indicated, but still get errors
+from substitution rules.
+
+Is that ``problematic`` class a docutils thing, or an ``rst2html`` thing?
+...no, it should be OK, as it's a docutils thing, at least in docutils 0.19.
+
+Of course, our Sphinx is using docutils 0.17.1
+
+...It doesn't seem to matter whether I'm using docutils 0.17 or 0.19
+
+My locally built vale seems to be showing the HTML produced as:
+
+.. code:: html
+
+   <tt class="docutils literal">kcat</tt> is a tool to explore data in Apache Kafka topics, check the :doc:`dedicate documentation &lt;/docs/products/kafka/howto/kcat&gt;` to understand how to use it with Aiven for Apache Kafka</li>
+<li><dl class="first docutils">
+
+where I'd expect (as produced by ``rst2html``):
+
+.. code:: html
+
+   <p class="first"><tt class="docutils literal">kcat</tt> is a tool to explore data in Apache Kafka topics, check the <a href="#system-message-5"><span class="problematic" id="problematic-5">:doc:`dedicate documentation &lt;/docs/products/kafka/howto/kcat&gt;`</span></a> to understand how to use it with Aiven for Apache Kafka</p>
+   <div class="system-message" id="system-message-5">
+   <p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/tony.ibbs/work/devportal/docs/community/challenge/the-rolling-challenge.rst</tt>, line 99); <em><a href="#problematic-5">backlink</a></em></p>
+   <p>Unknown interpreted text role &quot;doc&quot;.</p>
+
+I've still not worked out what is weird on my system.
+
+A quick look at docutils 0.17.1 versus 0.19 doesn't seem to show any obvious
+differences that would cause this, and anyway I'm fairly sure I've shown this
+using docutils 0.19.
